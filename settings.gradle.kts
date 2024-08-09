@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Demo_Android"
 include(":core")
 include(":app")
+include(":compose_navigation")
