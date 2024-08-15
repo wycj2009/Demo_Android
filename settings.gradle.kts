@@ -23,3 +23,4 @@ rootProject.name = "Demo_Android"
 include(":core")
 include(":app")
 include(":compose_navigation")
+include(":compose_custom_bottom_sheet_scaffold")
