@@ -1,5 +1,7 @@
-package com.example.dagger
+package com.example.dagger.di
 
+import com.example.dagger.EnglishGrammarLectureActivity
+import com.example.dagger.EnglishWordLectureActivity
 import dagger.Subcomponent
 
 @Subcomponent

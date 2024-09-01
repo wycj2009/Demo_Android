@@ -1,5 +1,7 @@
-package com.example.dagger
+package com.example.dagger.di
 
+import com.example.dagger.SharedPreferencesStorage
+import com.example.dagger.Storage
 import dagger.Binds
 import dagger.Module
 
