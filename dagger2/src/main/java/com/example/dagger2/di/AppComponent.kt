@@ -1,8 +1,8 @@
-package com.example.dagger.di
+package com.example.dagger2.di
 
 import android.content.Context
-import com.example.dagger.AppDataManager
-import com.example.dagger.MainActivity
+import com.example.dagger2.AppDataManager
+import com.example.dagger2.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton

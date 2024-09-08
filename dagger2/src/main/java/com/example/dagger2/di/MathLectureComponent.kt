@@ -1,6 +1,6 @@
-package com.example.dagger.di
+package com.example.dagger2.di
 
-import com.example.dagger.MathArithmeticLectureActivity
+import com.example.dagger2.MathArithmeticLectureActivity
 import dagger.Subcomponent
 
 @Subcomponent

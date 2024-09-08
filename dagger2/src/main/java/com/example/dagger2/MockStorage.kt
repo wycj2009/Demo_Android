@@ -1,4 +1,4 @@
-package com.example.dagger
+package com.example.dagger2
 
 class MockStorage : Storage {
     private val map: MutableMap<String, String?> = mutableMapOf()

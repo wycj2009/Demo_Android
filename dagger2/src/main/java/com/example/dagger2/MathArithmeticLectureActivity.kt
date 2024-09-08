@@ -1,4 +1,4 @@
-package com.example.dagger
+package com.example.dagger2
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,21 +16,21 @@ import androidx.compose.ui.unit.dp
 import com.example.core.ui.theme.Demo_AndroidTheme
 import javax.inject.Inject
 
-class EnglishWordLectureActivity : ComponentActivity() {
+class MathArithmeticLectureActivity : ComponentActivity() {
     @Inject
-    lateinit var viewModel: EnglishWordLectureViewModel
+    lateinit var viewModel: MathArithmeticLectureViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as App).appComponent.englishLectureComponent().create().inject(this)
+        (application as App).appComponent.mathLectureComponent().create().inject(this)
         super.onCreate(savedInstanceState)
 
-        viewModel.setLastEnglishWordLectureEntryTime()
+        viewModel.setLastMathArithmeticLectureEntryTime()
 
         setContent {
             Demo_AndroidTheme {
                 Column(modifier = Modifier.fillMaxSize()) {
                     Text(
-                        text = "${this@EnglishWordLectureActivity::class.simpleName}",
+                        text = "${this@MathArithmeticLectureActivity::class.simpleName}",
                         style = MaterialTheme.typography.titleMedium
                     )
                     Spacer(modifier = Modifier.height(10.dp))
@@ -44,14 +44,14 @@ class EnglishWordLectureActivity : ComponentActivity() {
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Text(
-                        text = "lastEnglishWordLectureEntryTime: ${viewModel.getLastEnglishWordLectureEntryTime()}",
+                        text = "lastMathArithmeticLectureEntryTime: ${viewModel.getLastMathArithmeticLectureEntryTime()}",
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Spacer(modifier = Modifier.height(10.dp))
                     HorizontalDivider(thickness = 1.dp, color = Color.LightGray)
                     Spacer(modifier = Modifier.height(10.dp))
                     Text(
-                        text = "${viewModel.getWords()}",
+                        text = "${viewModel.getArithmetic()}",
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Spacer(modifier = Modifier.weight(1.0f))

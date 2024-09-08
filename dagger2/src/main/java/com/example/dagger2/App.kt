@@ -1,8 +1,8 @@
-package com.example.dagger
+package com.example.dagger2
 
 import android.app.Application
-import com.example.dagger.di.AppComponent
-import com.example.dagger.di.DaggerAppComponent
+import com.example.dagger2.di.AppComponent
+import com.example.dagger2.di.DaggerAppComponent
 
 class App : Application() {
 

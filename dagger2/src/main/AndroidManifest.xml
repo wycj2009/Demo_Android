@@ -3,21 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name="com.example.dagger.App"
+        android:name="com.example.dagger2.App"
         android:label="Demo_Android"
         android:theme="@style/android:Theme.Material.Light.NoActionBar"
         tools:targetApi="31">
 
         <activity
-            android:name="com.example.dagger.MainActivity"
+            android:name="com.example.dagger2.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.dagger.MathArithmeticLectureActivity" />
-        <activity android:name="com.example.dagger.EnglishWordLectureActivity" />
-        <activity android:name="com.example.dagger.EnglishGrammarLectureActivity" />
+        <activity android:name="com.example.dagger2.MathArithmeticLectureActivity" />
+        <activity android:name="com.example.dagger2.EnglishWordLectureActivity" />
+        <activity android:name="com.example.dagger2.EnglishGrammarLectureActivity" />
     </application>
 </manifest>

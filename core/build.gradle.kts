@@ -5,20 +5,20 @@ plugins {
 
 android {
     namespace = "com.example.core"
-    compileSdk = 34
+    compileSdk = BuildInfo.COMPILE_SDK
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = BuildInfo.JAVA_VERSION
+        targetCompatibility = BuildInfo.JAVA_VERSION
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = BuildInfo.JVM_TARGET
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = BuildInfo.COMPOSE_KOTLIN_COMPILER_EXTENSION_VERSION
     }
 }
 

@@ -1,4 +1,4 @@
-package com.example.dagger
+package com.example.dagger2
 
 import android.icu.text.SimpleDateFormat
 import java.util.Date

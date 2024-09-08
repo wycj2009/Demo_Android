@@ -4,39 +4,29 @@ plugins {
 }
 
 android {
-    namespace = "com.example.demo_android"
-    compileSdk = 34
+    namespace = "com.example.app"
+    compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {
-        applicationId = "com.example.demo_android"
-        minSdk = 30
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = BuildInfo.APPLICATION_ID
+        minSdk = BuildInfo.MIN_SDK
+        targetSdk = BuildInfo.TARGET_SDK
+        versionCode = BuildInfo.VERSION_CODE
+        versionName = BuildInfo.VERSION_NAME
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-        }
-    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = BuildInfo.JAVA_VERSION
+        targetCompatibility = BuildInfo.JAVA_VERSION
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = BuildInfo.JVM_TARGET
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
+        kotlinCompilerExtensionVersion = BuildInfo.COMPOSE_KOTLIN_COMPILER_EXTENSION_VERSION
     }
 }
 

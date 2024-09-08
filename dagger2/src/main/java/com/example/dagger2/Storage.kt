@@ -1,4 +1,4 @@
-package com.example.dagger
+package com.example.dagger2
 
 interface Storage {
     fun getString(key: String): String?
