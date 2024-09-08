@@ -1,12 +1,12 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.org.jetbrains.kotlin.android)
 
     kotlin("kapt")
 }
 
 android {
-    namespace = "com.example.dagger2"
+    namespace = "com.example.demo_android.dagger2"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {

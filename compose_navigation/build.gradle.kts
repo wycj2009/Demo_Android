@@ -1,10 +1,10 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.org.jetbrains.kotlin.android)
 }
 
 android {
-    namespace = "com.example.compose_navigation"
+    namespace = "com.example.demo_android.compose_navigation"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {

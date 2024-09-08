@@ -1,10 +1,10 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.org.jetbrains.kotlin.android)
 }
 
 android {
-    namespace = "com.example.app"
+    namespace = "com.example.demo_android.app"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {
