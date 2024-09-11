@@ -1,12 +1,16 @@
 package com.example.demo_android.compose_detect_windowinsets
 
 import android.annotation.SuppressLint
+import android.graphics.Insets
 import android.graphics.Rect
+import android.os.Build
 import android.view.Gravity
 import android.view.View
 import android.view.ViewTreeObserver
+import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.PopupWindow
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.MutableState
@@ -16,9 +20,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalView
 import kotlin.math.max
 
-@SuppressLint("InternalInsetResource")
 @Composable
 fun rememberWindowInsetsInfoState(): State<WindowInsetsInfo> {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        rememberWindowInsetsInfoStateApi30orHigher()
+    } else {
+        rememberWindowInsetsInfoStateApi29orLower()
+    }
+}
+
+@Composable
+@SuppressLint("InternalInsetResource")
+private fun rememberWindowInsetsInfoStateApi29orLower(): State<WindowInsetsInfo> {
     val windowInsetsInfoState: MutableState<WindowInsetsInfo> = remember { mutableStateOf(WindowInsetsInfo()) }
     val rootView: View = LocalView.current.rootView
     val systemBarTopHeight: Int = rootView.resources.run {
@@ -57,6 +70,43 @@ fun rememberWindowInsetsInfoState(): State<WindowInsetsInfo> {
         return@DisposableEffect onDispose {
             measurementView.viewTreeObserver.removeOnGlobalLayoutListener(onGlobalLayoutListener)
             popupWindow.dismiss()
+        }
+    }
+
+    return windowInsetsInfoState
+}
+
+@Composable
+@RequiresApi(Build.VERSION_CODES.R)
+private fun rememberWindowInsetsInfoStateApi30orHigher(): State<WindowInsetsInfo> {
+    val windowInsetsInfoState: MutableState<WindowInsetsInfo> = remember { mutableStateOf(WindowInsetsInfo()) }
+    val rootView: View = LocalView.current.rootView
+
+    DisposableEffect(rootView) {
+        val onGlobalLayoutListener = ViewTreeObserver.OnGlobalLayoutListener {
+            val rootWindowInsets: WindowInsets = rootView.rootWindowInsets
+            val systemBarsInsets: Insets = rootWindowInsets.getInsets(WindowInsets.Type.systemBars())
+            val imeInsets: Insets = rootWindowInsets.getInsets(WindowInsets.Type.ime())
+
+            val screenHeight: Int = rootView.height
+            val systemBarTopHeight: Int = systemBarsInsets.top
+            val systemBarBottomHeight: Int = systemBarsInsets.bottom
+            val totalImeHeight: Int = imeInsets.bottom
+            val onlyImeHeight: Int = max(0, totalImeHeight - systemBarBottomHeight)
+
+            windowInsetsInfoState.value = windowInsetsInfoState.value.copy(
+                screenHeight = screenHeight,
+                systemBarTopHeight = systemBarTopHeight,
+                systemBarBottomHeight = systemBarBottomHeight,
+                totalImeHeight = totalImeHeight,
+                onlyImeHeight = onlyImeHeight,
+                isImeVisible = onlyImeHeight > 0,
+            )
+        }
+        rootView.viewTreeObserver.addOnGlobalLayoutListener(onGlobalLayoutListener)
+
+        onDispose {
+            rootView.viewTreeObserver.removeOnGlobalLayoutListener(onGlobalLayoutListener)
         }
     }
 

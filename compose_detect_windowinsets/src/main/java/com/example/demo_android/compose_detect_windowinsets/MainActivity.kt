@@ -3,7 +3,6 @@ package com.example.demo_android.compose_detect_windowinsets
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -26,8 +25,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        enableEdgeToEdge()
-        window.setDecorFitsSystemWindows(false)
+//        enableEdgeToEdge()
+//        window.setDecorFitsSystemWindows(false)
 
         setContent {
             Demo_AndroidTheme {
