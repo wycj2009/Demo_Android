@@ -4,7 +4,7 @@
     <application
         android:name=".App"
         android:label="Demo_Android"
-        android:theme="@style/android:Theme.Material.Light.NoActionBar">
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
         <activity
             android:name=".MainActivity"
