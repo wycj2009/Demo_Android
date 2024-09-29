@@ -12,13 +12,13 @@ class Settings2 private constructor(applicationContext: Context) : PreferencesDa
         applicationContext.preferencesDataStoreFile(name = "settings_2")
     }
 
-    val boolean: Pref<Boolean> = pref(key = "boolean", defaultValue = false)
-    val int: Pref<Int> = pref(key = "int", defaultValue = 0)
-    val long: Pref<Long> = pref(key = "long", defaultValue = 0L)
-    val float: Pref<Float> = pref(key = "float", defaultValue = 0f)
-    val double: Pref<Double> = pref(key = "double", defaultValue = 0.0)
-    val string: Pref<String> = pref(key = "string", defaultValue = "")
-    val stringSet: Pref<Set<String>> = pref(key = "stringSet", defaultValue = setOf())
+    val boolean: Pref<Boolean> = Pref(key = "boolean", defaultValue = false)
+    val int: Pref<Int> = Pref(key = "int", defaultValue = 0)
+    val long: Pref<Long> = Pref(key = "long", defaultValue = 0L)
+    val float: Pref<Float> = Pref(key = "float", defaultValue = 0f)
+    val double: Pref<Double> = Pref(key = "double", defaultValue = 0.0)
+    val string: Pref<String> = Pref(key = "string", defaultValue = "")
+    val stringSet: Pref<Set<String>> = Pref(key = "stringSet", defaultValue = setOf())
 
     companion object {
         private var instance: Settings2? = null
