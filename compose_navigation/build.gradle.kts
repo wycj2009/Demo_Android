@@ -14,7 +14,6 @@ android {
         versionCode = BuildInfo.VERSION_CODE
         versionName = BuildInfo.VERSION_NAME
     }
-
     compileOptions {
         sourceCompatibility = BuildInfo.JAVA_VERSION
         targetCompatibility = BuildInfo.JAVA_VERSION
