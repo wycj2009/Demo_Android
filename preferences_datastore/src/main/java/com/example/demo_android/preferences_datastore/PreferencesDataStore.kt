@@ -16,7 +16,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 
 abstract class PreferencesDataStore {
-    abstract val dataStore: DataStore<Preferences>
+    protected abstract val dataStore: DataStore<Preferences>
 
     inner class Pref<T>(
         private val key: String,

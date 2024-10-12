@@ -7,9 +7,9 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 
 // 의존성 주입 후 사용
-class Settings1 private constructor(applicationContext: Context) : PreferencesDataStore() {
+class Settings2DataStore private constructor(applicationContext: Context) : PreferencesDataStore() {
     override val dataStore: DataStore<Preferences> = PreferenceDataStoreFactory.create {
-        applicationContext.preferencesDataStoreFile(name = "settings_1")
+        applicationContext.preferencesDataStoreFile(name = "settings_2")
     }
 
     val boolean: Pref<Boolean> = Pref(key = "boolean", defaultValue = false)
@@ -21,10 +21,10 @@ class Settings1 private constructor(applicationContext: Context) : PreferencesDa
     val stringSet: Pref<Set<String>> = Pref(key = "stringSet", defaultValue = setOf())
 
     companion object {
-        private var instance: Settings1? = null
-        fun getInstance(applicationContext: Context): Settings1 {
+        private var instance: Settings2DataStore? = null
+        fun getInstance(applicationContext: Context): Settings2DataStore {
             return instance ?: synchronized(this) {
-                instance ?: Settings1(applicationContext).also {
+                instance ?: Settings2DataStore(applicationContext).also {
                     instance = it
                 }
             }
