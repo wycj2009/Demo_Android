@@ -41,12 +41,12 @@ abstract class PreferencesDataStore {
         @Suppress("UNCHECKED_CAST")
         private fun preferencesKey(): Preferences.Key<T> {
             return when (defaultValue) {
-                is Boolean -> booleanPreferencesKey(key)
-                is Int -> intPreferencesKey(key)
-                is Long -> longPreferencesKey(key)
-                is Float -> floatPreferencesKey(key)
-                is Double -> doublePreferencesKey(key)
-                is String -> stringPreferencesKey(key)
+                is Boolean? -> booleanPreferencesKey(key)
+                is Int? -> intPreferencesKey(key)
+                is Long? -> longPreferencesKey(key)
+                is Float? -> floatPreferencesKey(key)
+                is Double? -> doublePreferencesKey(key)
+                is String? -> stringPreferencesKey(key)
                 is Set<*> -> stringSetPreferencesKey(key)
                 else -> throw IllegalStateException()
             } as Preferences.Key<T>
