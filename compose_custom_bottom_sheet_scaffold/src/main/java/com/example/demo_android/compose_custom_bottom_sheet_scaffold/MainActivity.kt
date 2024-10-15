@@ -45,7 +45,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.demo_android.core.ui.theme.Demo_AndroidTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -56,57 +55,55 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Demo_AndroidTheme {
-                var isListScrolling: Boolean by remember { mutableStateOf(false) }
-                val lazyListState: LazyListState = rememberLazyListState()
+            var isListScrolling: Boolean by remember { mutableStateOf(false) }
+            val lazyListState: LazyListState = rememberLazyListState()
 
-                CustomBottomSheetScaffold(
-                    isListScrolling = { isListScrolling },
-                    isListTop = { !lazyListState.canScrollBackward },
-                    sheetContent = { nestedScrollConnection: NestedScrollConnection ->
-                        Box(
+            CustomBottomSheetScaffold(
+                isListScrolling = { isListScrolling },
+                isListTop = { !lazyListState.canScrollBackward },
+                sheetContent = { nestedScrollConnection: NestedScrollConnection ->
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(Color.LightGray)
+                    ) {
+                        LazyColumn(
                             modifier = Modifier
-                                .fillMaxSize()
-                                .background(Color.LightGray)
-                        ) {
-                            LazyColumn(
-                                modifier = Modifier
-                                    .fillMaxWidth(0.5f)
-                                    .nestedScroll(nestedScrollConnection)
-                                    .pointerInput(Unit) {
-                                        awaitPointerEventScope {
-                                            while (true) {
-                                                val pointerEvent: PointerEvent = awaitPointerEvent(pass = PointerEventPass.Main)
-                                                when (pointerEvent.type) {
-                                                    PointerEventType.Press -> {
-                                                        isListScrolling = true
-                                                    }
-                                                    PointerEventType.Release -> {
-                                                        isListScrolling = false
-                                                    }
+                                .fillMaxWidth(0.5f)
+                                .nestedScroll(nestedScrollConnection)
+                                .pointerInput(Unit) {
+                                    awaitPointerEventScope {
+                                        while (true) {
+                                            val pointerEvent: PointerEvent = awaitPointerEvent(pass = PointerEventPass.Main)
+                                            when (pointerEvent.type) {
+                                                PointerEventType.Press -> {
+                                                    isListScrolling = true
+                                                }
+                                                PointerEventType.Release -> {
+                                                    isListScrolling = false
                                                 }
                                             }
                                         }
-                                    },
-                                state = lazyListState,
-                            ) {
-                                items(100) {
-                                    Text(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                            .background(Color.DarkGray)
-                                            .wrapContentSize(Alignment.Center),
-                                        text = "${it}",
-                                        color = Color.White,
-                                        style = TextStyle(fontSize = 30.sp)
-                                    )
-                                    Spacer(modifier = Modifier.height(2.dp))
-                                }
+                                    }
+                                },
+                            state = lazyListState,
+                        ) {
+                            items(100) {
+                                Text(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .background(Color.DarkGray)
+                                        .wrapContentSize(Alignment.Center),
+                                    text = "${it}",
+                                    color = Color.White,
+                                    style = TextStyle(fontSize = 30.sp)
+                                )
+                                Spacer(modifier = Modifier.height(2.dp))
                             }
                         }
-                    },
-                )
-            }
+                    }
+                },
+            )
         }
     }
 }

@@ -30,7 +30,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.demo_android.core.ui.theme.Demo_AndroidTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -45,80 +44,78 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App() {
-    Demo_AndroidTheme {
-        val navController: NavHostController = rememberNavController()
-        val currentBackStack: NavBackStackEntry? by navController.currentBackStackEntryAsState()
+    val navController: NavHostController = rememberNavController()
+    val currentBackStack: NavBackStackEntry? by navController.currentBackStackEntryAsState()
 
-        Scaffold(
-            topBar = {
-                Row {
-                    IconButton(
-                        onClick = {
-                            navController.navigate(route = "home") { launchSingleTop = true }
-                        }
-                    ) {
-                        Icon(imageVector = if (currentBackStack?.destination?.route == "home") Icons.Filled.Home else Icons.Outlined.Home, contentDescription = null)
+    Scaffold(
+        topBar = {
+            Row {
+                IconButton(
+                    onClick = {
+                        navController.navigate(route = "home") { launchSingleTop = true }
                     }
-                    IconButton(
-                        onClick = {
-                            navController.navigate(route = "person") { launchSingleTop = true }
-                        }
-                    ) {
-                        Icon(imageVector = if (currentBackStack?.destination?.route == "person") Icons.Filled.Person else Icons.Outlined.Person, contentDescription = null)
+                ) {
+                    Icon(imageVector = if (currentBackStack?.destination?.route == "home") Icons.Filled.Home else Icons.Outlined.Home, contentDescription = null)
+                }
+                IconButton(
+                    onClick = {
+                        navController.navigate(route = "person") { launchSingleTop = true }
                     }
-                    IconButton(
-                        onClick = {
-                            navController.navigate(route = "settings") { launchSingleTop = true }
-                        }
-                    ) {
-                        Icon(imageVector = if (currentBackStack?.destination?.route == "settings") Icons.Filled.Settings else Icons.Outlined.Settings, contentDescription = null)
+                ) {
+                    Icon(imageVector = if (currentBackStack?.destination?.route == "person") Icons.Filled.Person else Icons.Outlined.Person, contentDescription = null)
+                }
+                IconButton(
+                    onClick = {
+                        navController.navigate(route = "settings") { launchSingleTop = true }
                     }
+                ) {
+                    Icon(imageVector = if (currentBackStack?.destination?.route == "settings") Icons.Filled.Settings else Icons.Outlined.Settings, contentDescription = null)
                 }
             }
+        }
+    ) {
+        NavHost(
+            modifier = Modifier.padding(it),
+            navController = navController,
+            startDestination = "home",
         ) {
-            NavHost(
-                modifier = Modifier.padding(it),
-                navController = navController,
-                startDestination = "home",
-            ) {
-                composable(route = "home") {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(Color.DarkGray),
-                    ) {
-                        Text(
-                            modifier = Modifier.align(Alignment.Center),
-                            text = "home",
-                            color = Color.White,
-                        )
-                    }
+            composable(route = "home") {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.DarkGray),
+                ) {
+                    Text(
+                        modifier = Modifier.align(Alignment.Center),
+                        text = "home",
+                        color = Color.White,
+                    )
                 }
-                composable(route = "person") {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(Color.DarkGray),
-                    ) {
-                        Text(
-                            modifier = Modifier.align(Alignment.Center),
-                            text = "person",
-                            color = Color.White,
-                        )
-                    }
+            }
+            composable(route = "person") {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.DarkGray),
+                ) {
+                    Text(
+                        modifier = Modifier.align(Alignment.Center),
+                        text = "person",
+                        color = Color.White,
+                    )
                 }
-                composable(route = "settings") {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(Color.DarkGray),
-                    ) {
-                        Text(
-                            modifier = Modifier.align(Alignment.Center),
-                            text = "settings",
-                            color = Color.White,
-                        )
-                    }
+            }
+            composable(route = "settings") {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Color.DarkGray),
+                ) {
+                    Text(
+                        modifier = Modifier.align(Alignment.Center),
+                        text = "settings",
+                        color = Color.White,
+                    )
                 }
             }
         }

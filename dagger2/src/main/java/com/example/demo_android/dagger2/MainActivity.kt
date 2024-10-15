@@ -15,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.demo_android.core.ui.theme.Demo_AndroidTheme
 import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
@@ -29,51 +28,49 @@ class MainActivity : ComponentActivity() {
         viewModel.setLastAppLunchTime()
 
         setContent {
-            Demo_AndroidTheme {
-                Column(modifier = Modifier.fillMaxSize()) {
-                    Text(
-                        text = "${this@MainActivity::class.simpleName}",
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                    Spacer(modifier = Modifier.height(10.dp))
-                    Text(
-                        text = "${viewModel.getInjectedFieldsInfo()}",
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Spacer(modifier = Modifier.height(10.dp))
-                    Text(
-                        text = "lastAppLunchTime: ${viewModel.getLastAppLunchTime()}",
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Spacer(modifier = Modifier.height(10.dp))
-                    HorizontalDivider(thickness = 1.dp, color = Color.LightGray)
-                    Spacer(modifier = Modifier.height(10.dp))
-                    Button(
-                        onClick = {
-                            startActivity(Intent(this@MainActivity, MathArithmeticLectureActivity::class.java))
-                        }
-                    ) {
-                        Text(text = "MathArithmeticLectureActivity")
+            Column(modifier = Modifier.fillMaxSize()) {
+                Text(
+                    text = "${this@MainActivity::class.simpleName}",
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    text = "${viewModel.getInjectedFieldsInfo()}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    text = "lastAppLunchTime: ${viewModel.getLastAppLunchTime()}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                HorizontalDivider(thickness = 1.dp, color = Color.LightGray)
+                Spacer(modifier = Modifier.height(10.dp))
+                Button(
+                    onClick = {
+                        startActivity(Intent(this@MainActivity, MathArithmeticLectureActivity::class.java))
                     }
-                    Button(
-                        onClick = {
-                            startActivity(Intent(this@MainActivity, EnglishWordLectureActivity::class.java))
-                        }
-                    ) {
-                        Text(text = "EnglishWordLectureActivity")
-                    }
-                    Button(
-                        onClick = {
-                            startActivity(Intent(this@MainActivity, EnglishGrammarLectureActivity::class.java))
-                        }
-                    ) {
-                        Text(text = "EnglishGrammarLectureActivity")
-                    }
-                    Spacer(modifier = Modifier.weight(1.0f))
-                    HorizontalDivider(thickness = 1.dp, color = Color.LightGray)
-                    Spacer(modifier = Modifier.height(10.dp))
-                    // TODO: Add Graph UI
+                ) {
+                    Text(text = "MathArithmeticLectureActivity")
                 }
+                Button(
+                    onClick = {
+                        startActivity(Intent(this@MainActivity, EnglishWordLectureActivity::class.java))
+                    }
+                ) {
+                    Text(text = "EnglishWordLectureActivity")
+                }
+                Button(
+                    onClick = {
+                        startActivity(Intent(this@MainActivity, EnglishGrammarLectureActivity::class.java))
+                    }
+                ) {
+                    Text(text = "EnglishGrammarLectureActivity")
+                }
+                Spacer(modifier = Modifier.weight(1.0f))
+                HorizontalDivider(thickness = 1.dp, color = Color.LightGray)
+                Spacer(modifier = Modifier.height(10.dp))
+                // TODO: Add Graph UI
             }
         }
     }
