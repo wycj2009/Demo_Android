@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.demo_android.compose_navigation"
+    namespace = "${BuildInfo.APPLICATION_ID}.compose_navigation"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {

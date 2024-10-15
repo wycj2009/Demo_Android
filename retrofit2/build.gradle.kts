@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.demo_android.retrofit2"
+    namespace = "${BuildInfo.APPLICATION_ID}.retrofit2"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {

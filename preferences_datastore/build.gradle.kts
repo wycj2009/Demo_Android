@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.demo_android.preferences_datastore"
+    namespace = "${BuildInfo.APPLICATION_ID}.preferences_datastore"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {

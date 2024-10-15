@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.demo_android.compose_custom_bottom_sheet_scaffold"
+    namespace = "${BuildInfo.APPLICATION_ID}.compose_custom_bottom_sheet_scaffold"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {

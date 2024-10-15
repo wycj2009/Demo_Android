@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.demo_android.dagger2"
+    namespace = "${BuildInfo.APPLICATION_ID}.dagger2"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {

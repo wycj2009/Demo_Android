@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.demo_android.app"
+    namespace = "${BuildInfo.APPLICATION_ID}.app"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {

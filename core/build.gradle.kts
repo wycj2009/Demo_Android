@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.demo_android.core"
+    namespace = "${BuildInfo.APPLICATION_ID}.core"
     compileSdk = BuildInfo.COMPILE_SDK
 
     compileOptions {

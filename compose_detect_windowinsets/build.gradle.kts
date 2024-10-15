@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.demo_android.compose_detect_windowinsets"
+    namespace = "${BuildInfo.APPLICATION_ID}.compose_detect_windowinsets"
     compileSdk = BuildInfo.COMPILE_SDK
 
     defaultConfig {
