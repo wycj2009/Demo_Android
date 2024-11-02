@@ -1,7 +1,6 @@
 package com.example.demo_android.retrofit2
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.horizontalScroll
@@ -52,7 +51,6 @@ class MainActivity : ComponentActivity() {
                     onClick = {
                         CoroutineScope(Dispatchers.IO).launch {
                             val response: GetRandomUserResponse = api.getRandomUser()
-                            Log.d("myLog", "${response}")
                             val gson: Gson = GsonBuilder().setPrettyPrinting().create()
                             getRandomUserResponseStr = gson.toJson(response)
                         }
