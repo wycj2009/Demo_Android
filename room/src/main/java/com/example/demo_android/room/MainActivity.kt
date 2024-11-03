@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                     Button(
                         onClick = {
                             CoroutineScope(Dispatchers.IO).launch {
-                                timeStampDao.insertAll(TimeStamp(timeValue = "${System.currentTimeMillis()}"))
+                                timeStampDao.insertAll(TimeStamp(timeValue = System.currentTimeMillis()))
                             }
                         }
                     ) {
